@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Logs and runtime output
+*.log
+outputs/
+data/
+
+# Generated cache files
+*.cache
+datasets/sample_shapes/labels/*.cache
+
+# Keep only the curated sample assets under datasets and runs.
+datasets/*
+!datasets/sample_shapes/
+!datasets/sample_shapes/**
+
+runs/*
+!runs/sample_shapes/
+!runs/sample_shapes/**
