@@ -14,7 +14,9 @@ import streamlit as st
 
 
 APP_DIR = Path(__file__).resolve().parent
-DEFAULT_CUSTOM = APP_DIR / "runs" / "sample_shapes" / "weights" / "best.pt"
+DEFAULT_CUSTOM = APP_DIR / "runs" / "sample_shapes_ft" / "weights" / "best.pt"
+if not DEFAULT_CUSTOM.exists():
+    DEFAULT_CUSTOM = APP_DIR / "runs" / "sample_shapes" / "weights" / "best.pt"
 OUTPUT_DIR = APP_DIR / "outputs"
 DATA_DIR = APP_DIR / "data"
 HISTORY_FILE = DATA_DIR / "detect_history.jsonl"
@@ -419,7 +421,9 @@ def main() -> None:
 
         if image_preview is not None:
             st.image(cv2.cvtColor(image_preview, cv2.COLOR_BGR2RGB), caption="Input", use_container_width=True)
-            if st.button("Chạy detection cho ảnh", use_container_width=True):
+            auto_detect = cam is not None and image_fingerprint != st.session_state.image_input_fp
+            manual_detect = st.button("Chạy detection cho ảnh", use_container_width=True)
+            if auto_detect or manual_detect:
                 try:
                     annotated, out_path, report_path, summary = process_image(
                         model,

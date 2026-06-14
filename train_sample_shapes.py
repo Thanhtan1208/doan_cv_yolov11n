@@ -57,7 +57,7 @@ def main() -> int:
         verbose=True,
     )
 
-    run_dir = Path(args.project).resolve() / "detect" / args.name
+    run_dir = Path(args.project).resolve() / args.name
     weights = run_dir / "weights"
     best_pt = weights / "best.pt"
     last_pt = weights / "last.pt"
@@ -70,4 +70,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

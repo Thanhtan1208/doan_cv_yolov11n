@@ -12,7 +12,7 @@ This repository contains a small end-to-end demo for object detection with Ultra
 Included assets:
 
 - `datasets/sample_shapes/`: tiny synthetic dataset for a fast demo.
-- `runs/sample_shapes/weights/best.pt`: custom weights trained on the sample dataset.
+- `runs/sample_shapes_ft/weights/best.pt`: latest custom weights trained on the sample dataset.
 - `yolo11n.pt`: fallback pretrained weights used when no custom model is available.
 
 ## Run
@@ -41,6 +41,6 @@ streamlit run app_streamlit.py
 
 ## Notes
 
-- The default custom weights path is `runs/sample_shapes/weights/best.pt`.
+- The default custom weights path is `runs/sample_shapes_ft/weights/best.pt`.
 - Runtime files such as logs, cache, `outputs/`, and local virtual environments are intentionally ignored by Git.
 - If `yolo11n.pt` is missing, Ultralytics can download it automatically when the demo starts.

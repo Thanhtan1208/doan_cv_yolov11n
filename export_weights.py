@@ -8,8 +8,8 @@ def parse_args() -> argparse.Namespace:
     )
     parser.add_argument(
         "--weights",
-        default=str(Path(__file__).resolve().parent / "runs" / "sample_shapes" / "weights" / "best.pt"),
-        help="Đường dẫn .pt (mặc định best.pt của sample_shapes run).",
+        default=str(Path(__file__).resolve().parent / "runs" / "sample_shapes_ft" / "weights" / "best.pt"),
+        help="Đường dẫn .pt (mặc định best.pt của latest sample_shapes_ft run).",
     )
     parser.add_argument("--format", default="onnx", help="Format export (mặc định onnx).")
     parser.add_argument("--imgsz", type=int, default=640, help="Image size (mặc định 640).")

@@ -6,8 +6,15 @@ import cv2
 
 
 def default_weights() -> str:
-    custom = Path(__file__).resolve().parent / "runs" / "sample_shapes" / "weights" / "best.pt"
-    return str(custom) if custom.exists() else "yolo11n.pt"
+    root = Path(__file__).resolve().parent
+    candidates = [
+        root / "runs" / "sample_shapes_ft" / "weights" / "best.pt",
+        root / "runs" / "sample_shapes" / "weights" / "best.pt",
+    ]
+    for custom in candidates:
+        if custom.exists():
+            return str(custom)
+    return "yolo11n.pt"
 
 
 def parse_args() -> argparse.Namespace:
